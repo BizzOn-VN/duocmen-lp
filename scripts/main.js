@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, {
-        threshold: 0.3 // Vừa ló diện 20% trên màn hình là kích hoạt ngay
+        threshold: 0.25 // Vừa ló diện 20% trên màn hình là kích hoạt ngay
     });
 
     // Kích hoạt bộ theo dõi cho từng section
