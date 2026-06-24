@@ -135,12 +135,12 @@ img{
   }
 /* --- 1. SETUP KHUNG CHỨA (BANNER) --- */
 .banner {
-    display: table;
+    
     margin: 0 auto; /* Hoặc flex/grid tùy layout lớn của bạn, giúp ôm sát kích thước ảnh */
     position: relative;
     width: 80%;
     /* Thiết lập môi trường 3D */
-    perspective: 1000px; 
+    perspective: 1600px; 
     transform-style: preserve-3d;
     
     /* Chạy animation tự động lật */
