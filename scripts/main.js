@@ -170,3 +170,76 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
+
+$(".toggle-menu").click(function(){
+  $('.main-menu ul').toggleClass('active');
+});
+$(".main-menu ul li").click(function(){
+  $('.main-menu ul').toggleClass('active');
+});
+
+// Select the element you want to toggle (e.g., a navbar)
+const header = document.querySelector('.main-menu');
+
+window.addEventListener('scroll', () => {
+  // Check how far the user has scrolled vertically
+  if (window.scrollY > 70) {
+    header.classList.add('active');
+  } else {
+    header.classList.remove('active');
+  }
+});
+
+// 1. Lấy tất cả các section có class dạng section-X và các link menu
+const sections = document.querySelectorAll('[class^="section-"]');
+const navLinks = document.querySelectorAll(".nav-link");
+
+// --- PHẦN 1: TỰ ĐỘNG ACTIVE KHI CUỘN TRANG (Giữ nguyên) ---
+const options = {
+  root: null,
+  rootMargin: "-50px 0px 0px 0px", // Trừ đi 50px ở đỉnh để tính mốc active chính xác hơn khi cuộn
+  threshold: 0.4, 
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      navLinks.forEach((link) => link.classList.remove("active"));
+      const currentClass = entry.target.classList[0]; 
+      const activeLink = document.querySelector(`.nav-link[data-target="${currentClass}"]`);
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
+    }
+  });
+}, options);
+
+sections.forEach((section) => observer.observe(section));
+
+
+// --- PHẦN 2: XỬ LÝ CLICK ĐỂ CUỘN (Đã sửa để trừ hao 50px) ---
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault(); // Ngăn nhảy trang mặc định
+    
+    // Lấy tên class mục tiêu
+    const targetClass = link.getAttribute("data-target");
+    const targetSection = document.querySelector(`.${targetClass}`);
+    
+    if (targetSection) {
+      // Chiều cao menu cần trừ hao (bạn có thể đổi thành 60, 70 tùy menu của bạn)
+      const menuHeight = 50; 
+      
+      // Tính toán vị trí chính xác: Vị trí section + số pixel đã cuộn - chiều cao menu
+      const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - menuHeight;
+      
+      // Thực hiện cuộn mượt mà đến vị trí đã tính toán
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth"
+      });
+    }
+  });
+});
