@@ -636,7 +636,7 @@ img{
     /* 2. Chạy dọc xuống giữa ống thực quản */
     50% {
         top: 50%;
-        left: 27%;
+        left: 23%;
         width: 5%;
         transform: rotate(-28deg);
     }
