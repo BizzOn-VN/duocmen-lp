@@ -421,10 +421,16 @@ img{
 .section-5{
   position: relative;
 }
+.section-5 .img-banner{
+      position: absolute;
+    left: 40%;
+    top: 7%;
+    width: 30%;
+}
 .section-5 .ani-tiasang{
   position: absolute;
        position: absolute;
-       left: 68.5%;
+       left: 63.5%;
     top: 15%;
     width: 8%;
  
@@ -456,7 +462,7 @@ img{
   position: absolute;
   left: 17%;
     top: 13%;
-    width: 35%;
+    width: 30%;
     transform: scale(0.0);
     
 }
@@ -493,9 +499,9 @@ img{
 }
 .section-5 .bot-content .md-hop-thuoc{
       position: absolute;
-    left: 11%;
-    bottom: 3%;
-    width: 50%;
+        left: 20%;
+    bottom: 5%;
+    width: 35%;
 }
 .section-5 .bot-content .md-hop-thuoc .vien-thuoc{
   position: absolute;
