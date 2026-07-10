@@ -118,7 +118,7 @@ img{
     
     margin: 0 auto; /* Hoặc flex/grid tùy layout lớn của bạn, giúp ôm sát kích thước ảnh */
     position: relative;
-    width: 80%;
+    width: 60%;
     /* Thiết lập môi trường 3D */
     perspective: 1600px; 
     transform-style: preserve-3d;
@@ -127,8 +127,7 @@ img{
    
 }
 .section-1.active .banner{
-  animation: autoFlipCard 2s ease-in-out;
-  animation-fill-mode: forwards;
+  animation: autoFlipCard 10s ease-in-out infinite;
 }
 
 /* Giữ hiệu ứng rê chuột vào thì tạm dừng nếu muốn */
@@ -173,20 +172,34 @@ img{
 
 /* --- 4. KEYFRAMES XOAY ĐỀU --- */
 @keyframes autoFlipCard {
-    0%, 50% {
-        /* Giữ nguyên mặt sau (back) trong 30% thời gian đầu để user kịp nhìn */
-        transform: rotateY(0deg);
-    }
-    100% {
-        /* Lật đúng 180 độ sang mặt trước (front) và dừng lại nhờ thuộc tính 'forwards' ở trên */
-        transform: rotateY(180deg);
-    }
+   0% {
+    transform: rotateY(0deg);
+  }
+  10% {
+    /* Lật sang mặt sau (180 độ) trong 0.5s đầu */
+    transform: rotateY(0deg);
+  }
+  20% {
+    /* Giữ nguyên mặt sau trong 1s tiếp theo */
+    transform: rotateY(180deg);
+  }
+  90% {
+    /* Lật ngược lại mặt trước (360 độ hoặc về 0deg) trong 0.5s */
+    transform: rotateY(180deg);
+  }
+
+  /* --- GIAI ĐOẠN 2: NGHỈ (Chiếm 8 giây còn lại để đủ 10s) --- */
+  100% {
+    /* Giữ nguyên mặt trước cho đến hết giây thứ 10 rồi lặp lại */
+    transform: rotateY(360deg);
+  }
 }
 .banner .md-ico-1 .ico-1{
   position: absolute;
     left: 23%;
     top: 20%;
     width: 10.7%;
+    transform: scale(0.0);
     
 }
 .banner .md-ico-1 .ico-2{
@@ -194,6 +207,7 @@ img{
     left: 58.5%;
     top: 0%;
     width: 12.5%;
+    transform: scale(0.0);
 
 }
 .banner .md-ico-1 .ico-3{
@@ -201,6 +215,7 @@ img{
     left: 72%;
     top: 14%;
     width: 9%;
+    transform: scale(0.0);
 
 }
 .banner .md-ico-1 .ico-4{
@@ -208,6 +223,7 @@ img{
     left: 79%;
     top: 42%;
     width: 15%;
+    transform: scale(0.0);
 
 }
 .banner .md-ico-1 .ico-5{
@@ -215,126 +231,127 @@ img{
     left: 14%;
     top: 52%;
     width: 5.5%;
+    transform: scale(0.0);
 }
 .banner .md-ico-1 .ico-6{
       position: absolute;
         left: 66.5%;
     top: 0%;
     width: 11%;
-    
+    transform: scale(0.0);
 }
 .banner .md-ico-1 .ico-7{
       position: absolute;
     left: 87%;
     top: 25%;
     width: 8.5%;
-
+  transform: scale(0.0);
 }
 .banner .md-ico-1 .ico-8{
       position: absolute;
     left: 68%;
     top: 87%;
     width: 8%;
-
+  transform: scale(0.0);
 }
 .banner .md-ico-1 .ico-9{
       position: absolute;
       left: 15%;
     top: 58%;
     width: 4.5%;
-
+  transform: scale(0.0);
 }
 .section-1.active .banner .md-ico-1 .ico-1{
-  animation: ico-1 1s ease-in-out;
+  animation: ico-1 10s infinite;
 }
 .section-1.active .banner .md-ico-1 .ico-2{
-  animation: ico-2 1s ease-in-out;
+  animation: ico-2 10s infinite;
 }
 .section-1.active .banner .md-ico-1 .ico-3{
-  animation: ico-3 1s ease-in-out;
+  animation: ico-3 10s infinite;
 }
 .section-1.active .banner .md-ico-1 .ico-4{
-  animation: ico-4 1s ease-in-out;
+  animation: ico-4 10s infinite;
 }
 .section-1.active .banner .md-ico-1 .ico-5{
-  animation: ico-5 1s ease-in-out;
+  animation: ico-5 10s infinite;
 }
 .section-1.active .banner .md-ico-1 .ico-6{
-  animation: ico-6 3s ease-in-out;
+  animation: ico-6 10s infinite;
 }
 .section-1.active .banner .md-ico-1 .ico-7{
-  animation: ico-7 3s ease-in-out;
+  animation: ico-7 10s infinite;
 }
 .section-1.active .banner .md-ico-1 .ico-8{
-  animation: ico-8 3s ease-in-out;
+  animation: ico-8 10s infinite;
 }
 .section-1.active .banner .md-ico-1 .ico-9{
-  animation: ico-9 3s ease-in-out;
+  animation: ico-9 10s infinite;
 }
 @keyframes ico-1{
   0%{
     transform: scale(0.0);
   }
-  70%{
+  10%{
     transform: scale(1.0);
   }
   100%{
-    transform: scale(1.0);
+    transform: scale(0.0);
   }
 }
 @keyframes ico-2{
   0%{
     transform: scale(0.0);
   }
-  70%{
+  10%{
     transform: scale(1.0);
   }
   100%{
-    transform: scale(1.0);
+    transform: scale(0.0);
   }
 }
 @keyframes ico-3{
   0%{
     transform: scale(0.0);
   }
-  70%{
+  10%{
     transform: scale(1.0);
   }
   100%{
-    transform: scale(1.0);
+    transform: scale(0.0);
   }
 }
 @keyframes ico-4{
   0%{
     transform: scale(0.0);
   }
-  70%{
+  10%{
     transform: scale(1.0);
   }
   100%{
-    transform: scale(1.0);
+    transform: scale(0.0);
   }
 }
 @keyframes ico-5{
   0%{
     transform: scale(0.0);
   }
-  70%{
+  10%{
     transform: scale(1.0);
   }
   100%{
-    transform: scale(1.0);
+    transform: scale(0.0);
   }
 }
 @keyframes ico-6{
-  0%, 50%{
+  0%, 10%{
     transform: scale(0.0);
   }
-  60%{
+  20%{
     transform: scale(0.0);
 
   }
-  80%{
+  30%{
     transform: scale(1.0);
   }
   100%{
@@ -342,14 +359,14 @@ img{
   }
 }
 @keyframes ico-7{
-  0%, 50%{
+  0%, 10%{
     transform: scale(0.0);
   }
-  60%{
+  20%{
     transform: scale(0.0);
 
   }
-  80%{
+  30%{
     transform: scale(1.0);
   }
   100%{
@@ -357,14 +374,14 @@ img{
   }
 }
 @keyframes ico-8{
-  0%, 50%{
+  0%, 10%{
     transform: scale(0.0);
   }
-  60%{
+  20%{
     transform: scale(0.0);
 
   }
-  80%{
+  30%{
     transform: scale(1.0);
   }
   100%{
@@ -372,14 +389,14 @@ img{
   }
 }
 @keyframes ico-9{
-  0%, 50%{
+  0%, 10%{
     transform: scale(0.0);
   }
-  60%{
+  20%{
     transform: scale(0.0);
 
   }
-  80%{
+  30%{
     transform: scale(1.0);
   }
   100%{
@@ -423,14 +440,14 @@ img{
 }
 .section-5 .img-banner{
       position: absolute;
-    left: 40%;
+    left: 47%;
     top: 7%;
-    width: 30%;
+    width: 24%;
 }
 .section-5 .ani-tiasang{
   position: absolute;
        position: absolute;
-       left: 63.5%;
+       left: 65.5%;
     top: 15%;
     width: 8%;
  
@@ -460,9 +477,9 @@ img{
 
 .section-5 .text-3{
   position: absolute;
-  left: 17%;
-    top: 13%;
-    width: 30%;
+  left: 34%;
+    top: 16%;
+    width: 25%;
     transform: scale(0.0);
     
 }
@@ -499,9 +516,9 @@ img{
 }
 .section-5 .bot-content .md-hop-thuoc{
       position: absolute;
-        left: 20%;
-    bottom: 5%;
-    width: 35%;
+        left: 31%;
+    bottom: 9%;
+    width: 30%;
 }
 .section-5 .bot-content .md-hop-thuoc .vien-thuoc{
   position: absolute;
@@ -541,13 +558,7 @@ img{
   width: 50%;
 }
 @media screen and (max-width: 767px){
-  .md-ai-bot{
-    width: 10%;
-  }
-  .ai-chat-container{
-    width: 90%;
-    height: 60%;
-  }
+  
   .section-5 .bot-content .md-hop-thuoc .ctn-popup{
     left: 31%;
     top: 88%;
@@ -570,6 +581,12 @@ img{
 .section-2{
   position: relative;
 }
+.section-2 .img-duongruot{
+  position: absolute;
+  left: 5%;
+  top: 23%;
+  width: 40%;
+}
 .section-2 .img-title{
   position: absolute;
   left: 15%;
@@ -578,9 +595,9 @@ img{
 }
 .section-2 .sc2-img-6{
   position: absolute;
-  left: 44%;
+  left: 27%;
     top: 10%;
-    width: 22%;
+    width: 18%;
     transform: scale(0.0);
 }
 .section-2 .sc2-img-6 .text6-img-1{
@@ -637,9 +654,9 @@ img{
 }*/
 .section-2 .sc2-img-1{
   position: absolute;
-  left: 44%;
+  left: 27%;
     top: 10%;
-    width: 22%;
+    width: 18%;
     position: absolute;
     opacity: 0;
     /* --- ĐÂY LÀ ĐOẠN QUAN TRỌNG NHẤT --- */
@@ -647,24 +664,36 @@ img{
   /*  animation: moveAlongPath 4s ease-in-out forwards;*/
 
 }
+.section-2 .vien-thuoc-4{
+  position: absolute;
+  left: 27%;
+  top: 10%;
+  width: 15%;
+   
+   opacity: 0;
+}
+.section-2.active .vien-thuoc-4{
+  animation: moveAlongPath 4s ease-in-out forwards;
+   animation-delay: 4.5s;
+}
 @keyframes moveAlongPath {
     /* 1. Vị trí xuất phát ở đầu thực quản (Top: 15%, Left: 35%) */
     0% {
-       left: 44%;
-    top: 10%;
-    width: 22%;
+       left: 23%;
+    top: 15%;
+    width: 15%;
     opacity: 1;
     }
     15%{
-      top: 20%;
-        left: 40%;
-        width: 15%;
+      top: 30%;
+        left: 20%;
+        width: 10%;
         transform: rotate(-28deg);
     }
     /* 2. Chạy dọc xuống giữa ống thực quản */
     50% {
         top: 50%;
-        left: 23%;
+        left: 25%;
         width: 5%;
         transform: rotate(-28deg);
     }
@@ -674,17 +703,24 @@ img{
     /* 4. Xuống đáy dạ dày và bắt đầu xoay đầu chuẩn bị rẽ trái */
     80% {
         top: 61%;
-        left: 35%;
+        left: 32%;
         width: 10%;
-        transform: rotate(-70deg);
+        transform: rotate(-50deg);
     }
-    
+    90%{
+      left: 33%;
+            top: 63%;
+            width: 8%;
+            opacity: 1;
+      content: url("../images/vien-thuoc-4.png");
+    }
     /* 5. Chạy hẳn sang khúc ruột non bên trái và ẩn đi */
     100% {
-        left: 36%;
-            top: 62%;
-            width: 12%;
+        left: 33%;
+            top: 63%;
+            width: 10%;
             opacity: 1;
+            content: url("../images/vien-thuoc-2.png");
     }
 }
 .section-2 .sc2-img-3{
@@ -901,7 +937,7 @@ img{
 /* Chỉ chạy khi .section-2 có class .active */
 .section-2.active .sc2-img-1 {
 
-    animation: moveAlongPath 4s ease-in-out 5s forwards, AlongPath-pop-in 2s ease-in-out forwards 0.5s;
+    animation:  AlongPath-pop-in 2s ease-in-out forwards 0.5s;
 }
 @keyframes AlongPath-pop-in{
   0%{
@@ -934,14 +970,14 @@ img{
 }
 
 .section-2.active .sc2-img-3 { width: 40%;
-    left: 46%;
-    top: 53%; animation: sc2-reveal 0.5s ease-in-out forwards; animation-delay: 9s; }
-.section-2.active .sc2-img-5 {     width: 10%;
-    left: 33%;
-    top: 80.5%; animation: sc2-reveal 0.5s ease-in-out forwards; animation-delay: 10.5s; }
+    left: 41%;
+    top: 52%; animation: sc2-reveal 0.5s ease-in-out forwards; animation-delay: 9s; }
+.section-2.active .sc2-img-5 {     width: 8%;
+    left: 31%;
+    top: 84.5%;z-index: 2; animation: sc2-reveal 0.5s ease-in-out forwards; animation-delay: 10.5s; }
 .section-2.active .sc2-img-4 {width: 47%;
-    left: 40%;
-    top: 71%; animation: sc2-reveal 0.5s ease-in-out forwards; animation-delay: 11s; }
+    left: 36%;
+    top: 72%;z-index: 2; animation: sc2-reveal 0.5s ease-in-out forwards; animation-delay: 11s; }
 
 @keyframes sc2-reveal {
     0% { clip-path: polygon(0 100%, 0 100%, 0 100%, 0 100%); }
@@ -955,33 +991,33 @@ img{
     transform: scale(0.0);
 }
 
-.section-2.active .btn-sc2-1 { left: 54%; top: 62%; animation: sc2-scale-1 0.7s ease-in-out 9.5s forwards, sc2-tranform 1s infinite 12.5s; }
-.section-2.active .btn-sc2-2 { left: 73%; top: 62%; animation: sc2-scale-2 0.7s ease-in-out 9.7s forwards, sc2-tranform 1s infinite 12.5s; }
-.section-2.active .btn-sc2-3 { left: 63%; top: 66%; animation: sc2-scale-3 0.7s ease-in-out 9.9s forwards, sc2-tranform 1s infinite 12.5s; }
-.section-2.active .btn-sc2-4 {     left: 54%;
+.section-2.active .btn-sc2-1 { left: 48.5%; top: 62.5%; animation: sc2-scale-1 0.7s ease-in-out 9.5s forwards, sc2-tranform 1s infinite 12.5s; }
+.section-2.active .btn-sc2-2 { left: 66.5%; top: 62.5%; animation: sc2-scale-2 0.7s ease-in-out 9.7s forwards, sc2-tranform 1s infinite 12.5s; }
+.section-2.active .btn-sc2-3 { left: 57%; top: 68%; animation: sc2-scale-3 0.7s ease-in-out 9.9s forwards, sc2-tranform 1s infinite 12.5s; }
+.section-2.active .btn-sc2-4 {     left: 48.5%;
     top: 79.5%; animation: sc2-scale-4 0.7s ease-in-out 11.5s forwards, sc2-tranform 1s infinite 12.5s;  }
-.section-2.active .btn-sc2-5 { left: 71%;
+.section-2.active .btn-sc2-5 { left: 66.5%;
     top: 79.5%;  animation: sc2-scale-5 0.7s ease-in-out 11.7s forwards, sc2-tranform 1s infinite 12.5s;  }
 
 @keyframes sc2-scale-1 {
     0% { transform: scale(0.0); top: 56%; }
-    100% { transform: scale(1.0); top: 62%; }
+    100% { transform: scale(1.0); top: 62.5%; }
 }
 @keyframes sc2-scale-2 {
     0% { transform: scale(0.0); top: 56%; }
-    100% { transform: scale(1.0); top: 62%; }
+    100% { transform: scale(1.0); top: 62.5%; }
 }
 @keyframes sc2-scale-3 {
     0% { transform: scale(0.0); top: 56%; }
-    100% { transform: scale(1.0); top: 66%; }
+    100% { transform: scale(1.0); top: 67%; }
 }
 @keyframes sc2-scale-4 {
     0% { transform: scale(0.0); top: 73.5%; }
-    100% { transform: scale(1.0); top: 79.5%; }
+    100% { transform: scale(1.0); top: 82.5%; }
 }
 @keyframes sc2-scale-5 {
     0% { transform: scale(0.0); top: 73.5%; }
-    100% { transform: scale(1.0); top: 79.5%; }
+    100% { transform: scale(1.0); top: 82.5%; }
 }
 @keyframes sc2-tranform{
   0%,100%{
@@ -1046,6 +1082,7 @@ img{
 }
 
 @media screen and (max-width: 767px){
+
   .share-btn{
     padding: 15px 10px;
   }
@@ -1059,10 +1096,10 @@ img{
     font-size: calc(5px + 0.8vw);
   }
   .share-btn .social-icons{
-    font-size: calc(6px + 0.8vw) !important;
+    font-size: calc(5px + 0.8vw) !important;
   }
   .share-btn-2 .social-icons{
-    font-size: calc(6px + 0.6vw) !important;
+    font-size: calc(5px + 0.6vw) !important;
   }
   .share-btn-2{
     padding: 15px 5px;
@@ -1090,15 +1127,15 @@ img{
     }
     15%{
       top: 35%;
-        left: 37%;
-        width: 25%;
+        left: 35%;
+        width: 15%;
         transform: rotate(-28deg);
     }
     /* 2. Chạy dọc xuống giữa ống thực quản */
     50% {
         top: 45%;
         left: 35%;
-        width: 12%;
+        width: 15%;
         transform: rotate(-28deg);
     }
     
@@ -1108,10 +1145,16 @@ img{
     80% {
         top: 50%;
         left: 50%;
-        width: 20%;
-        transform: rotate(-70deg);
+        width: 15%;
+        transform: rotate(-50deg);
     }
-    
+    90%{
+        left: 55%;
+    top: 56%;
+    width: 23%;
+    opacity: 1;
+      content: url("../images/vien-thuoc-4.png");
+    }
     /* 5. Chạy hẳn sang khúc ruột non bên trái và ẩn đi */
     100% {
             left: 55%;
@@ -1119,6 +1162,7 @@ img{
     width: 23%;
     opacity: 1;
     transform: rotate(0deg);
+    content: url("../images/vien-thuoc-2.png");
     }
 
   }
@@ -1249,6 +1293,8 @@ img{
 }
 .section-3 .top-sc-3 .md-content .sc3-img-1{
   position: relative;
+  width: 60%;
+  margin: 0 auto;
 }
 .section-3.active .top-sc-3 .md-content .shine-sweep {
    content: "";
@@ -1396,7 +1442,7 @@ img{
 }
 .faq-wrapper {
     display: flex;
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
     border-radius: 16px;
     overflow: hidden;
@@ -1814,6 +1860,13 @@ button:focus{
   z-index: 9999;
 }
 @media screen and (max-width: 767px){
+  .md-ai-bot{
+    width: 15%;
+  }
+  .ai-chat-container{
+    width: 90%;
+    height: 60%;
+  }
   .main-menu{
     position: relative;
     background: #FFF;
