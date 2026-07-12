@@ -1225,7 +1225,7 @@ img{
     /* 2. Chạy dọc xuống giữa ống thực quản */
     50% {
         top: 45%;
-        left: 35%;
+        left: 40%;
         width: 15%;
         transform: rotate(-28deg);
     }
@@ -1987,8 +1987,13 @@ button:focus{
     width: 15%;
   }
   .ai-chat-container{
-    width: 80%;
+    width: 100%;
     height: 80%;
+  }
+  .close-all-ai{
+    width: 6%;
+    right: 0;
+    top: 0;
   }
   .main-menu{
     position: relative;
