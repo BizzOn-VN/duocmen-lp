@@ -14,9 +14,6 @@ duocmen-lp/
 └── vendor/         # Thư viện bên thứ ba
 ```
 
-## Thông tin đăng nhập hosting
-
-Thông tin đăng nhập để deploy nằm trong file **`hossting.md`** (ở thư mục gốc của dự án).
 
 
 ## Cách deploy
