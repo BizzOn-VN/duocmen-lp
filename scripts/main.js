@@ -96,16 +96,21 @@ const shareButtons = document.querySelectorAll('.share-btn');
 
 shareButtons.forEach(btn => {
   btn.addEventListener('click', function(e) {
-    // Nếu click trúng vào các icon mạng xã hội bên trong, giữ nguyên menu không đóng
-    if (e.target.closest('.icon')) return;
+    // CHỈ CHẠY TRÊN MOBILE (Màn hình dưới 768px)
+    if (window.innerWidth < 768) {
+      // Nếu click trúng vào các icon mạng xã hội bên trong, giữ nguyên menu không đóng
+      if (e.target.closest('.icon')) return;
 
-    // Ngăn chặn sự kiện click bị lan ra ngoài document (Event Bubbling)
-    e.stopPropagation();
+      // Ngăn chặn sự kiện click bị lan ra ngoài document (Event Bubbling)
+      e.stopPropagation();
 
-    // Chỉ bật/tắt (toggle) class active trên CHÍNH CÁI NÚT được click (this)
-    this.classList.toggle('active');
+      // Chỉ bật/tắt (toggle) class active trên CHÍNH CÁI NÚT được click (this)
+      this.classList.toggle('active');
+    }
   });
 });
+
+// Tự động đóng menu nếu người dùng click ra bất kỳ vùng nào ngoài nút trên Mobile
 
 // Click ra ngoài vùng trống bất kỳ trên màn hình thì đóng tất cả các nút lại
 
