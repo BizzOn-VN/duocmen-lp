@@ -1,0 +1,28 @@
+# robots.txt — www.enzymax.vn
+# Sản phẩm: Enzymax Duo Biotics (DuoMen) — men tiêu hóa + men vi sinh
+# Chủ đầu tư: CÔNG TY CỔ PHẦN MHD PHARMA
+
+# --- Mọi bot: cho phép crawl toàn bộ site ---
+User-agent: *
+Allow: /
+
+# Ghi chú:
+# - KHÔNG chặn CSS/JS/ảnh: Google cần render trang để hiểu nội dung + đọc schema.js.
+# - KHÔNG chặn bot AI (GPTBot, ClaudeBot, PerplexityBot, Google-Extended...):
+#   mục tiêu GEO là để AI hiểu đúng sản phẩm qua Schema.org đã nhúng.
+
+# --- Chặn crawler thu thập backlink của đối thủ (không ảnh hưởng SEO Google) ---
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# --- Sitemap ---
+Sitemap: https://www.enzymax.vn/sitemap.xml
